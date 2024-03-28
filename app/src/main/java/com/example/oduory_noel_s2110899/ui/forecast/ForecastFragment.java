@@ -1,4 +1,4 @@
-package com.example.oduory_noel_s2110899.ui.dashboard;
+package com.example.oduory_noel_s2110899.ui.forecast;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.oduory_noel_s2110899.databinding.FragmentDashboardBinding;
+import com.example.oduory_noel_s2110899.databinding.Fragment3DayForecastBinding;
 
-public class DashboardFragment extends Fragment {
+public class ForecastFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private Fragment3DayForecastBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        ForecastViewModel forecastViewModel =
+                new ViewModelProvider(this).get(ForecastViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = Fragment3DayForecastBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.regionSpecificName;
+        forecastViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

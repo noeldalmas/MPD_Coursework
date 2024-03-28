@@ -1,16 +1,16 @@
-package com.example.oduory_noel_s2110899.ui.home;
+package com.example.oduory_noel_s2110899.ui.about;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class AboutViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public AboutViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("About The App");
     }
 
     public LiveData<String> getText() {

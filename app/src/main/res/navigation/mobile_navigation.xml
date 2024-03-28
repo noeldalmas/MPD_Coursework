@@ -3,23 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_quick_observations">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.oduory_noel_s2110899.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_quick_observations"
+        android:name="com.example.oduory_noel_s2110899.ui.quick_observations.QuickObservationsFragment"
+        android:label="@string/title_latest"
+        tools:layout="@layout/fragment_quick_observations" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.oduory_noel_s2110899.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_all_observations"
+        android:name="com.example.oduory_noel_s2110899.ui.detailed_observations.DetailedObservationsFragment"
+        android:label="@string/title_all_latest"
+        tools:layout="@layout/fragment_detailed_observations" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.oduory_noel_s2110899.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_3_day_forecast"
+        android:name="com.example.oduory_noel_s2110899.ui.forecast.ForecastFragment"
+        android:label="@string/title_3_day"
+        tools:layout="@layout/fragment_3_day_forecast" />
+
+    <fragment
+        android:id="@+id/navigation_about"
+        android:name="com.example.oduory_noel_s2110899.ui.about.AboutFragment"
+        android:label="@string/title_about"
+        tools:layout="@layout/fragment_about" />
 </navigation>
