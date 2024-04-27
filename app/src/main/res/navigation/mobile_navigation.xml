@@ -9,7 +9,12 @@
         android:id="@+id/navigation_quick_observations"
         android:name="com.example.oduory_noel_s2110899.ui.quick_observations.QuickObservationsFragment"
         android:label="@string/title_latest"
-        tools:layout="@layout/fragment_quick_observations" />
+        tools:layout="@layout/fragment_quick_observations" >
+
+        <action
+            android:id="@+id/action_navigation_quick_observations_to_navigation_detailed_observations"
+            app:destination="@id/navigation_all_observations" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_all_observations"

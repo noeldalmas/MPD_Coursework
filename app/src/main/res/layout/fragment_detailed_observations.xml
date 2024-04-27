@@ -48,13 +48,13 @@
                         android:layout_weight="1"
                         />
                     <TextView
-                        android:id="@+id/rd31wvmktsn"
+                        android:id="@+id/regionNam"
                         android:textColor="#8fe0ff"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:text="Deatiled Forecast"
+                        android:text="Detailed Forecast"
                         />
                     <View
                         android:layout_width="0dp"

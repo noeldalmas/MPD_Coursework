@@ -6,7 +6,7 @@
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ScrollView
@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingTop="12dp"
             android:paddingBottom="-1dp"
             >
             <LinearLayout
@@ -27,7 +26,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:layout_marginBottom="50dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginHorizontal="18dp"
                     android:orientation="horizontal">
                     <ImageView
@@ -82,7 +81,18 @@
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-                <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="100dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                    <TextView
                     android:id="@+id/rzupsbcxnwbo"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -96,12 +106,40 @@
                     android:id="@+id/r3hdvog5dj8v"
                     android:textSize="10sp"
                     android:layout_marginHorizontal="11dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:text="This weather app allows you to view 3-day weather forecasts and latest observations for various locations like Glasgow, London, New York, Oman, Mauritius, and Bangladesh. The app fetches data from BBC Weather RSS feeds, parses the XML data, and displays relevant information in a user-friendly manner. It provides features like displaying weather icons, maps, temperature details, wind speed, humidity, and other meteorological data."
                     />
-                <TextView
+
+                        <TextView
+                            android:id="@+id/r4nzba23k3wx"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="13dp"
+                            android:layout_marginStart="14dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:text="Key Features"
+                            />
+                        <TextView
+                            android:id="@+id/ridhr3duwhyo"
+                            android:textSize="10sp"
+                            android:layout_marginHorizontal="17dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:text="Displays 3-day weather forecasts for selected locations\nShows latest weather observations for chosen regions\nProvides detailed forecast information for each day\nAllows navigation between locations in a sequence\nAdapts layout for portrait and landscape modes\nParses XML data from RSS feeds using PullParser\nAutomatically updates data at user-defined intervals\nHandles scenarios with no internet connection"
+                            />
+                </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                    <TextView
                     android:id="@+id/r7syr23tzemv"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -116,49 +154,36 @@
                     android:textSize="10sp"
                     android:layout_marginHorizontal="11dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
                     android:text="This app was developed by Noel Oduory as part of the Mobile Platform Development course (MHI326841/MHI326842/M3I326836) at Glasgow Caledonian University. It is a coursework assignment to demonstrate design, coding, and testing abilities in creating an Android application. The app follows the provided specifications and incorporates good software architecture practices."
                     />
-                <TextView
-                    android:id="@+id/r4nzba23k3wx"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="13dp"
-                    android:layout_marginStart="14dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="Key Features"
-                    />
-                <TextView
-                    android:id="@+id/ridhr3duwhyo"
-                    android:textSize="10sp"
-                    android:layout_marginHorizontal="17dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:text="Displays 3-day weather forecasts for selected locations\nShows latest weather observations for chosen regions\nProvides detailed forecast information for each day\nAllows navigation between locations in a sequence\nAdapts layout for portrait and landscape modes\nParses XML data from RSS feeds using PullParser\nAutomatically updates data at user-defined intervals\nHandles scenarios with no internet connection"
-                    />
-                <TextView
-                    android:id="@+id/r1k43ezzlv6p"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="13dp"
-                    android:layout_marginStart="13dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="Contact Us"
-                    />
-                <TextView
-                    android:id="@+id/r1y6si08ewj2"
-                    android:textSize="10sp"
-                    android:layout_marginBottom="61dp"
-                    android:layout_marginHorizontal="11dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:text="For any inquiries, issues, or feedback regarding this weather app, please contact the developer at noduory201@caledonian.ac.uk. You can also report bugs or suggest improvements through the official channels provided by Glasgow Caledonian University for this coursework assignment."
-                    />
+
+                        <TextView
+                            android:id="@+id/r1k43ezzlv6p"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="13dp"
+                            android:layout_marginStart="13dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:text="Contact Us"
+                            />
+                        <TextView
+                            android:id="@+id/r1y6si08ewj2"
+                            android:textSize="10sp"
+                            android:layout_marginBottom="61dp"
+                            android:layout_marginHorizontal="11dp"
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:text="For any inquiries, issues, or feedback regarding this weather app, please contact the developer at noduory201@caledonian.ac.uk. You can also report bugs or suggest improvements through the official channels provided by Glasgow Caledonian University for this coursework assignment."
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

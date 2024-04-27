@@ -7,12 +7,9 @@
     tools:context=".ui.quick_observations.QuickObservationsFragment">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/quickObservationsLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background_blue"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:orientation="vertical">
@@ -42,11 +39,12 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="23dp"
                     android:textColor="@color/light_green"
+                    android:text="28th March 2024"
                     android:textSize="12sp" />
 
                 <LinearLayout
                     android:id="@+id/rd8cbspkmj6"
-                    android:layout_width="match_parent"
+                    android:layout_width="165dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"
                     android:layout_marginBottom="65dp"
@@ -71,7 +69,7 @@
                     </RelativeLayout>
 
                     <Spinner
-                        android:id="@+id/countrySpinner"
+                        android:id="@+id/locationName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:entries="@array/campuses"
@@ -94,7 +92,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/rlb37n0e88xc"
+                    android:id="@+id/currentTemperature"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -121,7 +119,7 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/rliy28ucgcc"
+                            android:id="@+id/currentWeatherIcon"
                             android:layout_width="match_parent"
                             android:layout_height="216dp"
                             android:scaleType="fitXY"
@@ -142,7 +140,7 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:id="@+id/rxe1351jdrz"
+                            android:id="@+id/windIcon"
                             android:layout_width="match_parent"
                             android:layout_height="12dp"
                             android:layout_marginHorizontal="50dp"
@@ -152,7 +150,7 @@
                             android:src="@drawable/wind" />
 
                         <TextView
-                            android:id="@+id/r3bztsghmfkr"
+                            android:id="@+id/currentWindSpeed"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="36dp"
@@ -173,16 +171,16 @@
                             android:textSize="10sp" />
 
                         <ImageView
-                            android:id="@+id/rfs43b6z43xb"
+                            android:id="@+id/humidityIcon"
                             android:layout_width="match_parent"
                             android:layout_height="15dp"
                             android:layout_marginHorizontal="49dp"
                             android:layout_marginBottom="5dp"
                             android:scaleType="fitXY"
-                            android:src="@drawable/cloudy" />
+                            android:src="@drawable/mist" />
 
                         <TextView
-                            android:id="@+id/rd9madl17s9u"
+                            android:id="@+id/currentRainfall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="45dp"
@@ -198,7 +196,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="48dp"
                             android:layout_marginBottom="22dp"
-                            android:text="Rain"
+                            android:text="Humidity"
                             android:textColor="#8fe0ff"
                             android:textSize="10sp" />
 
@@ -210,15 +208,16 @@
                             android:clipChildren="false"
                             android:clipToPadding="false"
                             android:gravity="center_vertical"
+                            android:background="@drawable/my_button"
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/r6k2qoyi9kqq"
+                                android:id="@+id/showDetailed"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Detailed"
-                                android:textColor="#8fe0ff"
-                                android:textSize="12sp" />
+                                android:textColor="#ffffff"
+                                android:textSize="14sp" />
 
                             <View
                                 android:layout_width="0dp"
@@ -227,8 +226,8 @@
 
                             <ImageView
                                 android:id="@+id/rtbj10nedior"
-                                android:layout_width="7dp"
-                                android:layout_height="6dp"
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
                                 android:scaleType="fitXY"
                                 android:src="@drawable/more_arrow" />
                         </LinearLayout>
@@ -268,7 +267,7 @@
                 </LinearLayout>
 
                 <HorizontalScrollView
-                    android:id="@+id/ri1u0himxh2"
+                    android:id="@+id/otherCitiesScrollView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
@@ -278,23 +277,25 @@
                     android:fillViewport="true">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:clipChildren="false"
                         android:clipToPadding="false"
+                        android:layout_marginBottom="30dp"
+                        android:divider="@drawable/divider"
+                        android:showDividers="middle"
                         android:orientation="horizontal">
 
                         <LinearLayout
                             android:id="@+id/bangladesh"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginEnd="10dp"
                             android:background="@drawable/cr30bff8fe0ff"
                             android:clipChildren="false"
                             android:clipToPadding="false"
                             android:orientation="vertical"
                             android:paddingVertical="30dp"
-                            android:paddingRight="16dp">
+                            >
 
                             <TextView
                                 android:id="@+id/r8ub6asl3otg"
@@ -312,7 +313,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="162dp"
                                 android:layout_marginBottom="7dp"
-                                android:text="35°"
                                 android:textColor="#31255a"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
@@ -329,7 +329,7 @@
 
                         <LinearLayout
                             android:id="@+id/new_york"
-                            android:layout_width="200dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/cr30bff8fe0ff"
                             android:clipChildren="false"
@@ -359,7 +359,7 @@
 
                         <LinearLayout
                             android:id="@+id/london"
-                            android:layout_width="200dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/cr30bff8fe0ff"
                             android:clipChildren="false"
@@ -389,7 +389,7 @@
 
                         <LinearLayout
                             android:id="@+id/oman"
-                            android:layout_width="200dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/cr30bff8fe0ff"
                             android:clipChildren="false"
@@ -419,7 +419,7 @@
 
                         <LinearLayout
                             android:id="@+id/mauritius"
-                            android:layout_width="200dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/cr30bff8fe0ff"
                             android:clipChildren="false"
@@ -449,7 +449,7 @@
 
                         <LinearLayout
                             android:id="@+id/glasgow"
-                            android:layout_width="200dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/cr30bff8fe0ff"
                             android:clipChildren="false"

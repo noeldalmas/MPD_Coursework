@@ -4,6 +4,9 @@
     <string name="title_3_day">3-Day</string>
     <string name="title_about">About</string>
     <string name="title_all_latest">Detailed</string>
+    <string name="forecast_icon">Forecast Icon</string>
+    <string name="back_icon">Back icon</string>
+    <string name="gcu_campus_locations">GCU Campus Locations</string>
 
     <string-array name="campuses">
         <item>Mauritius</item>
