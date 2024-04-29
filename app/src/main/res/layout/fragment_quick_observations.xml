@@ -47,7 +47,7 @@
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"
-                    android:layout_marginBottom="65dp"
+                    android:layout_marginBottom="30dp"
                     android:background="@drawable/cr360b4d75b4e3"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
@@ -92,23 +92,13 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/titleTemp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="27"
-                    android:textSize="30sp" />
-                <TextView
                     android:id="@+id/textDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginBottom="10dp"
                     android:text="Rainy"
-                    android:textSize="24sp" />
-
-
+                    android:textSize="20sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -136,7 +126,7 @@
                         android:layout_marginBottom="29dp"
                         android:layout_weight="1"
                         android:text="Visibility: High"
-                        android:textSize="30sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
 
                 <RelativeLayout

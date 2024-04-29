@@ -29,13 +29,7 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginHorizontal="18dp"
                     android:orientation="horizontal">
-                    <ImageView
-                        android:id="@+id/rzt5msu1o7f"
-                        android:layout_width="18dp"
-                        android:layout_height="15dp"
-                        android:src="@mipmap/ic_launcher"
-                        android:scaleType="fitXY"
-                        />
+
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"

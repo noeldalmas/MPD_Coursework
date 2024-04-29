@@ -42,13 +42,6 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <ImageView
-                            android:id="@+id/backIcon"
-                            android:layout_width="18dp"
-                            android:layout_height="15dp"
-                            android:contentDescription="@string/back_icon"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/back" />
 
                         <LinearLayout
                             android:id="@+id/rj51kx8pqnp"
@@ -131,8 +124,8 @@
                                 android:layout_marginStart="19dp"
                                 android:layout_marginBottom="23dp"
                                 android:text="3 Days Quick Forecast"
-                                android:textColor="#2b235a"
-                                android:textSize="16sp"
+                                android:textColor="@color/light_green"
+                                android:textSize="18sp"
                                 android:textStyle="bold" />
 
                             <LinearLayout
@@ -167,7 +160,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:text="25°"
-                                    android:textSize="16sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -202,7 +195,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:text="20°"
-                                    android:textSize="16sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -237,7 +230,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:text="25°"
-                                    android:textSize="16sp" />
+                                    android:textSize="12sp" />
                             </LinearLayout>
 
                             <TextView
@@ -245,7 +238,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="25dp"
-                                android:layout_marginTop="10dp"
+                                android:layout_marginTop="20dp"
                                 android:text="3:30pm"
                                 android:textColor="#8fe0ff"
                                 android:textSize="14sp"
@@ -288,7 +281,7 @@
                             android:layout_marginStart="11dp"
                             android:layout_marginBottom="37dp"
                             android:text="Sunday"
-                            android:textColor="#2b235a"
+                            android:textColor="@color/light_green"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -307,6 +300,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal"
+                                android:background="@drawable/cr20bff31255a"
                                 android:paddingHorizontal="27dp"
                                 android:paddingVertical="9dp">
 
@@ -778,7 +772,7 @@
                             android:layout_marginStart="11dp"
                             android:layout_marginBottom="37dp"
                             android:text="Monday"
-                            android:textColor="#2b235a"
+                            android:textColor="@color/light_green"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -1258,7 +1252,7 @@
                     android:layout_marginStart="11dp"
                     android:layout_marginBottom="37dp"
                     android:text="Tuesday"
-                    android:textColor="#2b235a"
+                    android:textColor="@color/light_green"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 

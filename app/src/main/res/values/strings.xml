@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Oduory_Noel_s2110899</string>
-    <string name="title_latest">Quick</string>
-    <string name="title_3_day">3-Day</string>
+    <string name="title_latest">Latest Observations</string>
+    <string name="title_3_day">3-Day Forecast</string>
     <string name="title_about">About</string>
     <string name="title_all_latest">Detailed</string>
     <string name="forecast_icon">Forecast Icon</string>

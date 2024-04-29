@@ -1,4 +1,4 @@
-// QuickObservationsViewModel.java
+// Noel Dalmas Oduory S2110899
 package com.example.oduory_noel_s2110899.ui.quick_observations;
 
 import androidx.lifecycle.LiveData;
@@ -13,17 +13,11 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.content.SharedPreferences;
 
 public class QuickObservationsViewModel extends ViewModel {
 

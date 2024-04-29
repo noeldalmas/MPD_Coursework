@@ -1,4 +1,4 @@
-// ForecastFragment.java
+// Noel Dalmas Oduory S2110899
 package com.example.oduory_noel_s2110899.ui.forecast;
 
 import android.content.Context;
@@ -101,7 +101,7 @@ public class ForecastFragment extends Fragment {
                     updateDay3UI(selectedLocationForecasts.get(2));
 
                     // Set the update time
-                    binding.updateTime.setText("Last updated: " + selectedLocationForecasts.get(0).getDate());
+                    binding.updateTime.setText("Last updated: " + selectedLocationForecasts.get(0).getDate() + " : Noel Oduory S2110899");
                 }
             }
         });
@@ -113,7 +113,7 @@ public class ForecastFragment extends Fragment {
         binding.day1Outlook.setText(forecast.getWeatherOutlook());
         binding.day1LowTemp.setText(forecast.getMinTemperature());
         binding.day1HighTemp.setText(forecast.getMaxTemperature());
-        binding.day1AvgTemp.setText(forecast.getMinTemperature());
+        binding.day1AvgTemp.setText(forecast.getMinTemperature() + " - " + forecast.getMaxTemperature());
         binding.day1Direction.setText(forecast.getWindDirection());
         binding.day1Speed.setText(forecast.getWindSpeed());
         binding.day1Visibility.setText(forecast.getVisibility());
@@ -131,7 +131,7 @@ public class ForecastFragment extends Fragment {
         binding.day2Outlook.setText(forecast.getWeatherOutlook());
         binding.day2LowTemp.setText(forecast.getMinTemperature());
         binding.day2HighTemp.setText(forecast.getMaxTemperature());
-        binding.day2AvgTemp.setText(forecast.getMinTemperature());
+        binding.day2AvgTemp.setText(forecast.getMinTemperature() + " - " + forecast.getMaxTemperature());
         binding.day2Direction.setText(forecast.getWindDirection());
         binding.day2Speed.setText(forecast.getWindSpeed());
         binding.day2Visibility.setText(forecast.getVisibility());
@@ -149,7 +149,7 @@ public class ForecastFragment extends Fragment {
         binding.day3Outlook.setText(forecast.getWeatherOutlook());
         binding.day3LowTemp.setText(forecast.getMinTemperature());
         binding.day3HighTemp.setText(forecast.getMaxTemperature());
-        binding.day3AvgTemp.setText(forecast.getMinTemperature());
+        binding.day3AvgTemp.setText(forecast.getMinTemperature() + " - " + forecast.getMaxTemperature());
         binding.day3Direction.setText(forecast.getWindDirection());
         binding.day3Speed.setText(forecast.getWindSpeed());
         binding.day3Visibility.setText(forecast.getVisibility());

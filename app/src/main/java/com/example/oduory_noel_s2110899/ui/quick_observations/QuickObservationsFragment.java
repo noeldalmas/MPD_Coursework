@@ -1,4 +1,4 @@
-// QuickObservationsFragment.java
+// Noel Dalmas Oduory S2110899
 package com.example.oduory_noel_s2110899.ui.quick_observations;
 
 import android.content.Context;
@@ -71,10 +71,7 @@ public class QuickObservationsFragment extends Fragment {
                 });
 
                 TextView currentOutlook = binding.currentOutlook;
-                currentOutlook.setText(observation.getCurrentOutlook());
-
-                TextView titleTemp = binding.titleTemp;
-                titleTemp.setText(observation.getTitleTemp());
+                currentOutlook.setText(observation.getCurrentOutlook() + " : Noel Oduory S2110899");
 
                 TextView currentTemperature = binding.currentTemperature;
                 currentTemperature.setText(observation.getTemperature());
