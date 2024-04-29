@@ -1,22 +1,34 @@
 // Noel Dalmas Oduory S2110899
 package com.example.oduory_noel_s2110899;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.oduory_noel_s2110899.databinding.ActivityMainBinding;
+import com.example.oduory_noel_s2110899.ui.forecast.ForecastViewModel;
+import com.example.oduory_noel_s2110899.ui.quick_observations.QuickObservationsViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,6 +57,42 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        QuickObservationsViewModel quickObservationsViewModel = new ViewModelProvider(this).get(QuickObservationsViewModel.class);
+        List<String> locationIds = Arrays.asList("2648579", "2643743", "5128581", "287286", "934154", "1185241");
+        if (isNetworkConnected()) {
+            for (String locationId : locationIds) {
+                quickObservationsViewModel.fetchData(locationId);
+            }
+        } else {
+            Toast.makeText(this, "Please connect to the internet", Toast.LENGTH_SHORT).show();
+        }
+
+        ForecastViewModel forecastViewModel = new ViewModelProvider(this).get(ForecastViewModel.class);
+        if (isNetworkConnected()) {
+            for (String locationId : locationIds) {
+                forecastViewModel.fetchData(locationId);
+            }
+        } else {
+            Toast.makeText(this, "Please connect to the internet", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    public boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm != null) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                Network network = cm.getActiveNetwork();
+                if (network == null) return false;
+                NetworkCapabilities capabilities = cm.getNetworkCapabilities(network);
+                return capabilities != null && (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) || capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR));
+            } else {
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                return activeNetwork != null && activeNetwork.isConnected();
+            }
+        }
+        return false;
     }
 
     @Override

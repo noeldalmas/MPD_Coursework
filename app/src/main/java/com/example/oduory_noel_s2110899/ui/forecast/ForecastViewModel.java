@@ -65,7 +65,6 @@ public class ForecastViewModel extends AndroidViewModel {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                handler.post(() -> Toast.makeText(getApplication(), "Error fetching data: " + e.getMessage(), Toast.LENGTH_LONG).show());
             }
         });
     }
