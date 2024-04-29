@@ -17,6 +17,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Executors;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.content.SharedPreferences;
 
 public class QuickObservationsViewModel extends ViewModel {
 
@@ -62,26 +69,36 @@ public class QuickObservationsViewModel extends ViewModel {
 
             int eventType = parser.getEventType();
             String date = null;
+            String title = null;
             String description = null;
+
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 if (eventType == XmlPullParser.START_TAG) {
                     if (parser.getName().equals("pubDate")) {
                         date = parser.nextText();
+                    } else if (parser.getName().equals("title")) {
+                        title = parser.nextText();
                     } else if (parser.getName().equals("description")) {
                         description = parser.nextText();
                     }
                 } else if (eventType == XmlPullParser.END_TAG && parser.getName().equals("item")) {
-                    // Parse the description to get the weather data
-                    String[] weatherData = description.split(", ");
-                    String temperature = weatherData[0].split(": ")[1];
-                    String windSpeed = weatherData[2].split(": ")[1];
-                    String humidity = weatherData[3].split(": ")[1];
+                    // Use regex to extract data from the title
+                    String currentOutlook = extractValue(title, ": (.*?),");
+                    String titleTemp = extractValue(title, "(\\d+Â°C \\(\\d+Â°F\\))");
+
+                    // Use regex to search for specific substrings in the description
+                    String temperature = extractValue(description, "Temperature: ([^,]+)");
+                    String windDirection = extractValue(description, "Wind Direction: ([^,]+)");
+                    String windSpeed = extractValue(description, "Wind Speed: ([^,]+)");
+                    String humidity = extractValue(description, "Humidity: ([^,]+)");
+                    String pressure = extractValue(description, "Pressure: ([^,]+,[^,]+)");
+                    String visibility = extractValue(description, "Visibility: ([^,]+)");
 
                     // Set the weather icon based on the humidity
                     String weatherIcon = Integer.parseInt(humidity.replace("%", "")) > 50 ? "day_rain" : "day_clear";
 
                     // Create a WeatherObservation object and add it to the list
-                    WeatherObservation observation = new WeatherObservation(date, locationIds.indexOf(locationId), temperature, windSpeed, humidity, weatherIcon);
+                    WeatherObservation observation = new WeatherObservation(date, locationId, currentOutlook, titleTemp, temperature, windDirection, windSpeed, humidity, pressure, visibility, weatherIcon);
                     quickObservations.postValue(Arrays.asList(observation));
                 }
                 eventType = parser.next();
@@ -90,4 +107,14 @@ public class QuickObservationsViewModel extends ViewModel {
             e.printStackTrace();
         }
     }
+
+    private String extractValue(String text, String regex) {
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+        if (matcher.find()) {
+            return matcher.group(1).trim();
+        }
+        return null;
+    }
+
 }

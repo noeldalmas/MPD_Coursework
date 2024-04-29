@@ -29,7 +29,7 @@ public class QuickObservationsFragment extends Fragment {
     private final List<String> locationIds = Arrays.asList("2648579", "2643743", "5128581", "287286", "934154", "1185241");
 
     private FragmentQuickObservationsBinding binding;
-    private TextView currentRainfall;
+    private TextView currentHumidity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class QuickObservationsFragment extends Fragment {
             for (WeatherObservation observation : observations) {
                 // Update the views with the fetched weather data
                 TextView textDate = binding.textDate;
-                textDate.setText(observation.getDate());
+                textDate.setText("Current Outlook: " + observation.getDate());
 
                 Spinner locationName = binding.locationName;
                 locationName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -70,19 +70,42 @@ public class QuickObservationsFragment extends Fragment {
                     }
                 });
 
+                TextView currentOutlook = binding.currentOutlook;
+                currentOutlook.setText(observation.getCurrentOutlook());
+
+                TextView titleTemp = binding.titleTemp;
+                titleTemp.setText(observation.getTitleTemp());
+
                 TextView currentTemperature = binding.currentTemperature;
                 currentTemperature.setText(observation.getTemperature());
+
+                TextView currentWindDirection = binding.currentWindDirection;
+                currentWindDirection.setText("Wind Direction: " + observation.getWindDirection());
 
                 TextView currentWindSpeed = binding.currentWindSpeed;
                 currentWindSpeed.setText(observation.getWindSpeed());
 
-                TextView currentRainfall = binding.currentRainfall;
+                TextView currentRainfall = binding.currentHumidity;
                 currentRainfall.setText(observation.getHumidity());
 
-                TextView showDetailed = binding.showDetailed;
-                showDetailed.setOnClickListener(v -> {
-                    // Navigate to the fragment_detailed_observations.xml
-                    Navigation.findNavController(v).navigate(R.id.action_navigation_quick_observations_to_navigation_detailed_observations);
+                TextView currentPressure = binding.currentPressure;
+                currentPressure.setText("Pressure: " + observation.getPressure());
+
+                TextView currentVisibility = binding.currentVisibility;
+                currentVisibility.setText("Visibility: " + observation.getVisibility());
+
+                TextView showForecast = binding.showForecast;
+                showForecast.setOnClickListener(v -> {
+                    // Navigate to the fragment_3_day_observations.xml
+                    Navigation.findNavController(root).navigate(R.id.action_navigation_quick_observations_to_navigation_forecast);
+
+                    // Pass the location ID to the ForecastFragment
+                    SharedPreferences sharedPreferences = getActivity().getSharedPreferences("app_preferences", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("locationId", observation.getlocationId());
+                    editor.apply();
+
+
                 });
 
                 // Update the weather icon

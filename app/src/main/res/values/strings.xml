@@ -9,11 +9,11 @@
     <string name="gcu_campus_locations">GCU Campus Locations</string>
 
     <string-array name="campuses">
-        <item>Mauritius</item>
         <item>Glasgow</item>
         <item>London</item>
         <item>New York</item>
         <item>Oman</item>
+        <item>Mauritius</item>
         <item>Bangladesh</item>
     </string-array>
 </resources>

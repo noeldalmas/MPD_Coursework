@@ -11,9 +11,10 @@
         android:label="@string/title_latest"
         tools:layout="@layout/fragment_quick_observations" >
 
+
         <action
-            android:id="@+id/action_navigation_quick_observations_to_navigation_detailed_observations"
-            app:destination="@id/navigation_all_observations" />
+            android:id="@+id/action_navigation_quick_observations_to_navigation_forecast"
+            app:destination="@id/navigation_3_day_forecast" />
     </fragment>
 
     <fragment
