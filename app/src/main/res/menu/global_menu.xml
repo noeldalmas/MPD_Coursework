@@ -7,11 +7,7 @@
         android:title="Change Theme"
         android:orderInCategory="100"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_update_frequency"
-        android:title="Update Frequency"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
+
     <item
         android:id="@+id/action_change_orientation"
         android:title="Change Orientation"

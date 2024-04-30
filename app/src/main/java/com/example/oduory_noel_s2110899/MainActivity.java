@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_quick_observations, R.id.navigation_all_observations, R.id.navigation_3_day_forecast, R.id.navigation_about)
+                R.id.navigation_quick_observations, R.id.navigation_3_day_forecast, R.id.navigation_about)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -116,10 +116,6 @@ public class MainActivity extends AppCompatActivity {
                 editor.putBoolean("isDarkTheme", true);
             }
             editor.apply();
-            return true;
-        } else if (id == R.id.action_update_frequency) {
-            // Handle update frequency change
-            // This is a placeholder. You'll need to implement this based on your application's requirements.
             return true;
         } else if (id == R.id.action_change_orientation) {
             int currentOrientation = getResources().getConfiguration().orientation;

@@ -61,6 +61,10 @@ public class QuickObservationsFragment extends Fragment {
         Spinner locationName = binding.locationName;
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) locationName.getAdapter();
 
+        // Fetch data for the default selected item in the spinner
+        int defaultPosition = locationName.getSelectedItemPosition();
+        quickObservationsViewModel.fetchData(locationIds.get(defaultPosition));
+
         // Create a variable to hold the previously clicked LinearLayout
         final LinearLayout[] previousClicked = {null};
 
@@ -83,7 +87,7 @@ public class QuickObservationsFragment extends Fragment {
             if (previousClicked[0] != null) {
                 previousClicked[0].setBackgroundResource(R.drawable.cr30bff8fe0ff); // Change color back to original
             }
-            bangladesh.setBackgroundColor(Color.parseColor("#FF0000")); // Change color to red
+            bangladesh.setBackgroundResource(R.drawable.my_button); // Change backround to green
             isLinearLayoutClicked[0] = true; // Set the flag
             locationName.setSelection(adapter.getPosition("Bangladesh"));
             previousClicked[0] = bangladesh; // Set the clicked LinearLayout as the previous clicked
@@ -95,7 +99,7 @@ public class QuickObservationsFragment extends Fragment {
             if (previousClicked[0] != null) {
                 previousClicked[0].setBackgroundResource(R.drawable.cr30bff8fe0ff);
             }
-            newYork.setBackgroundColor(Color.parseColor("#FF0000"));
+            newYork.setBackgroundResource(R.drawable.my_button);
             isLinearLayoutClicked[0] = true; // Set the flag
             locationName.setSelection(adapter.getPosition("New York"));
             previousClicked[0] = newYork;
@@ -107,7 +111,7 @@ public class QuickObservationsFragment extends Fragment {
             if (previousClicked[0] != null) {
                 previousClicked[0].setBackgroundResource(R.drawable.cr30bff8fe0ff);
             }
-            london.setBackgroundColor(Color.parseColor("#FF0000"));
+            london.setBackgroundResource(R.drawable.my_button);
             isLinearLayoutClicked[0] = true;
             locationName.setSelection(adapter.getPosition("London"));
             previousClicked[0] = london;
@@ -119,7 +123,7 @@ public class QuickObservationsFragment extends Fragment {
             if (previousClicked[0] != null) {
                 previousClicked[0].setBackgroundResource(R.drawable.cr30bff8fe0ff);
             }
-            oman.setBackgroundColor(Color.parseColor("#FF0000"));
+            oman.setBackgroundResource(R.drawable.my_button);
             isLinearLayoutClicked[0] = true;
             locationName.setSelection(adapter.getPosition("Oman"));
             previousClicked[0] = oman;
@@ -131,7 +135,7 @@ public class QuickObservationsFragment extends Fragment {
             if (previousClicked[0] != null) {
                 previousClicked[0].setBackgroundResource(R.drawable.cr30bff8fe0ff);
             }
-            mauritius.setBackgroundColor(Color.parseColor("#FF0000"));
+            mauritius.setBackgroundResource(R.drawable.my_button);
             isLinearLayoutClicked[0] = true;
             locationName.setSelection(adapter.getPosition("Mauritius"));
             previousClicked[0] = mauritius;
@@ -143,7 +147,7 @@ public class QuickObservationsFragment extends Fragment {
             if (previousClicked[0] != null) {
                 previousClicked[0].setBackgroundResource(R.drawable.cr30bff8fe0ff);
             }
-            glasgow.setBackgroundColor(Color.parseColor("#FF0000"));
+            glasgow.setBackgroundResource(R.drawable.my_button);
             isLinearLayoutClicked[0] = true;
             locationName.setSelection(adapter.getPosition("Glasgow"));
             previousClicked[0] = glasgow;
@@ -167,7 +171,7 @@ public class QuickObservationsFragment extends Fragment {
                         String selectedLocation = (String) parent.getItemAtPosition(position);
                         LinearLayout selectedLinearLayout = locationLinearLayoutMap.get(selectedLocation);
                         if (selectedLinearLayout != null) {
-                            selectedLinearLayout.setBackgroundColor(Color.parseColor("#FF0000")); // Change color to red
+                            selectedLinearLayout.setBackgroundResource(R.drawable.my_button); // Change background to green
                             previousClicked[0] = selectedLinearLayout; // Set the clicked LinearLayout as the previous clicked
                         }
                         isLinearLayoutClicked[0] = false; // Reset the flag
@@ -198,20 +202,6 @@ public class QuickObservationsFragment extends Fragment {
 
                 TextView currentVisibility = binding.currentVisibility;
                 currentVisibility.setText("Visibility: " + observation.getVisibility());
-
-                TextView showForecast = binding.showForecast;
-                showForecast.setOnClickListener(v -> {
-                    // Navigate to the fragment_3_day_observations.xml
-                    Navigation.findNavController(root).navigate(R.id.action_navigation_quick_observations_to_navigation_forecast);
-
-                    // Pass the location ID to the ForecastFragment
-                    SharedPreferences sharedPreferences = getActivity().getSharedPreferences("app_preferences", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("locationId", observation.getlocationId());
-                    editor.apply();
-
-
-                });
 
                 // Update the weather icon
                 ImageView weatherIcon = binding.currentWeatherIcon;
