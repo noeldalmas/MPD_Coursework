@@ -19,7 +19,10 @@ import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 public class QuickObservationsViewModel extends ViewModel {
 
@@ -81,6 +84,7 @@ public class QuickObservationsViewModel extends ViewModel {
                     // Use regex to extract data from the title
                     String currentOutlook = extractValue(title, ": (.*?),");
                     String titleTemp = extractValue(title, "(\\d+Â°C \\(\\d+Â°F\\))");
+                    String time = extractValue(title, "- (.*?):");
 
                     // Use regex to search for specific substrings in the description
                     String temperature = extractValue(description, "Temperature: ([^,]+)");
@@ -90,8 +94,24 @@ public class QuickObservationsViewModel extends ViewModel {
                     String pressure = extractValue(description, "Pressure: ([^,]+,[^,]+)");
                     String visibility = extractValue(description, "Visibility: ([^,]+)");
 
-                    // Set the weather icon based on the humidity
-                    String weatherIcon = Integer.parseInt(humidity.replace("%", "")) > 50 ? "day_rain" : "day_clear";
+                    // Determine whether it's day or night
+                    boolean isDay = Integer.parseInt(time.split(":")[0]) >= 6 && Integer.parseInt(time.split(":")[0]) < 18;
+
+                    // Parse the temperature and humidity
+                    int temp = Integer.parseInt(temperature.replaceAll("\\D+", ""));
+                    int hum = Integer.parseInt(humidity.replace("%", ""));
+
+                    // Set the weather icon based on the temperature, humidity, and time of day
+                    String weatherIcon;
+                    if (temp <= 10 && hum > 80) {
+                        weatherIcon = isDay ? "day_snow" : "night_snow";
+                    } else if (temp > 30 && hum > 80) {
+                        weatherIcon = isDay ? "day_rain_thunder" : "night_rain_thunder";
+                    } else if (hum > 80) {
+                        weatherIcon = isDay ? "day_rain" : "night_rain";
+                    } else {
+                        weatherIcon = isDay ? "day_clear" : "night_clear";
+                    }
 
                     // Create a WeatherObservation object and add it to the list
                     WeatherObservation observation = new WeatherObservation(date, locationId, currentOutlook, titleTemp, temperature, windDirection, windSpeed, humidity, pressure, visibility, weatherIcon);
