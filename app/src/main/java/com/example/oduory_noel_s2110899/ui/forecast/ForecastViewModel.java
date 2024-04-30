@@ -101,17 +101,41 @@ public class ForecastViewModel extends AndroidViewModel {
                     // Parse the description to get the weather data
                     assert description != null;
                     String[] weatherData = description.split(", ");
-                    String maxTemperature = weatherData.length > 0 ? weatherData[0].split(": ")[1] : null;
-                    String minTemperature = weatherData.length > 1 ? weatherData[1].split(": ")[1] : null;
-                    String windDirection = weatherData.length > 2 ? weatherData[2].split(": ")[1] : null;
-                    String windSpeed = weatherData.length > 3 ? weatherData[3].split(": ")[1] : null;
-                    String visibility = weatherData.length > 4 ? weatherData[4].split(": ")[1] : null;
-                    String pressure = weatherData.length > 5 ? weatherData[5].split(": ")[1] : null;
-                    String humidity = weatherData.length > 6 ? weatherData[6].split(": ")[1] : null;
-                    String uvRisk = weatherData.length > 7 ? weatherData[7].split(": ")[1] : null;
-                    String pollution = weatherData.length > 8 ? weatherData[8].split(": ")[1] : null;
-                    String sunrise = weatherData.length > 9 ? weatherData[9].split(": ")[1] : null;
-                    String sunset = weatherData.length > 10 ? weatherData[10].split(": ")[1] : null;
+                    String maxTemperature = null;
+                    String sunrise = null;
+                    String minTemperature = null;
+                    String windDirection = null;
+                    String windSpeed = null;
+                    String visibility = null;
+                    String pressure = null;
+                    String humidity = null;
+                    String uvRisk = null;
+                    String pollution = null;
+                    String sunset = null;
+
+                    if (weekday.equals("Tonight")) {
+                        minTemperature = weatherData[0].split(": ")[1];
+                        windDirection = weatherData[1].split(": ")[1];
+                        windSpeed = weatherData[2].split(": ")[1];
+                        visibility = weatherData[3].split(": ")[1];
+                        pressure = weatherData[4].split(": ")[1];
+                        humidity = weatherData[5].split(": ")[1];
+                        uvRisk = weatherData[6].split(": ")[1];
+                        pollution = weatherData[7].split(": ")[1];
+                        sunset = weatherData[8].split(": ")[1];
+                    } else {
+                        maxTemperature = weatherData[0].split(": ")[1];
+                        minTemperature = weatherData[1].split(": ")[1];
+                        windDirection = weatherData[2].split(": ")[1];
+                        windSpeed = weatherData[3].split(": ")[1];
+                        visibility = weatherData[4].split(": ")[1];
+                        pressure = weatherData[5].split(": ")[1];
+                        humidity = weatherData[6].split(": ")[1];
+                        uvRisk = weatherData[7].split(": ")[1];
+                        pollution = weatherData[8].split(": ")[1];
+                        sunrise = weatherData[9].split(": ")[1];
+                        sunset = weatherData[10].split(": ")[1];
+                    }
 
                     // Create a WeatherForecast object and add it to the list
                     WeatherForecast forecast = new WeatherForecast(locationId, date, weekday, weatherOutlook, minTemperature, maxTemperature, windDirection, windSpeed, visibility, pressure, humidity, uvRisk, pollution, sunrise, sunset);

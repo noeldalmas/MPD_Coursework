@@ -19,6 +19,8 @@ import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+
 public class QuickObservationsViewModel extends ViewModel {
 
     private final MutableLiveData<List<WeatherObservation>> quickObservations;

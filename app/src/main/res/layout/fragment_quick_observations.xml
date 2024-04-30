@@ -345,7 +345,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="21dp"
-                                android:text="Cloudy"
+                                android:text="South Asia"
                                 android:textColor="#31255a"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -375,7 +375,7 @@
                                 android:id="@+id/r3c9jsifw7tn"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Rainy"
+                                android:text="North America"
                                 android:textColor="#31255a"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -405,7 +405,7 @@
                                 android:id="@+id/r3c9jsifw7"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Rainy"
+                                android:text="Europe"
                                 android:textColor="#31255a"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -435,7 +435,7 @@
                                 android:id="@+id/r3c9jsif"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Rainy"
+                                android:text="Middle East"
                                 android:textColor="#31255a"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -465,7 +465,7 @@
                                 android:id="@+id/r3c9j"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Rainy"
+                                android:text="Africa"
                                 android:textColor="#31255a"
                                 android:textSize="10sp" />
                         </LinearLayout>
@@ -495,7 +495,7 @@
                                 android:id="@+id/r3c9"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Rainy"
+                                android:text="Europe"
                                 android:textColor="#31255a"
                                 android:textSize="10sp" />
                         </LinearLayout>
